@@ -1,0 +1,15 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.attribution {
+  position: absolute;
+  bottom: 1em;
+  left: 0;
+  right: 0;
+}
