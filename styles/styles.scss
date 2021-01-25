@@ -1,10 +1,22 @@
 html {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  font-size: 15px;
+  color: hsl(180, 29%, 50%);
+  background: hsl(180, 52%, 96%);
+  position: relative;
 }
 *,
 *::before,
 *::after {
   box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+}
+li {
+  list-style: none;
 }
 
 .attribution {
@@ -13,3 +25,12 @@ html {
   left: 0;
   right: 0;
 }
+@mixin displayFlex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@import "./_mobile";
+@import "./_desktop";

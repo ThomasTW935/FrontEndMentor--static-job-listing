@@ -23,19 +23,45 @@ function createHTMLElements(data) {
   data.forEach((obj) => {
     // console.log(obj)
     let listItem = document.createElement('li')
+    listItem.classList.add('job__listItem')
+    if (obj.featured) listItem.classList.add('job--featured')
 
     // Job Logo
-    let imgDiv = document.createElement('div')
-    let img = document.createElement('img')
-    img.setAttribute('src', obj.logo)
+    let imgDiv = createElement('div', { class: 'job__logo' })
+    let img = createElement('img', { src: obj.logo })
+
     imgDiv.append(img)
     listItem.append(imgDiv)
 
+
+    // Job Company Name
+
+    let companyName = createElement('span', { class: 'job__company' }, obj.company)
+    let newJob = (obj.new) ? createElement('span', { class: 'job__new' }, 'New!') : ''
+    let featured = (obj.featured) ? createElement('span', { class: 'job__featured' }, 'Featured') : ''
+
+    let companyList = createElement('ul', { class: 'job__special' })
+    let companyListItem = [companyName, newJob, featured]
+
+    companyListItem.forEach(item => {
+      if (item != '') {
+        let li = document.createElement('li')
+        li.append(item)
+        companyList.append(li)
+      }
+    })
+    listItem.append(companyList)
+
+    // Job Position
+
+    let position = createElement('h2', { class: 'job__position' }, obj.position)
+    listItem.append(position)
+
     // Job Details
-    createList(listItem, [obj.postedAt, obj.contract, obj.location], 'job__Details')
+    createList(listItem, [obj.postedAt, obj.contract, obj.location], 'job__details')
 
     // Job Skills
-    createList(listItem, [obj.role, obj.level, ...obj.tools, ...obj.languages], 'job__Skills')
+    createList(listItem, [obj.role, obj.level, ...obj.tools, ...obj.languages], 'job__skills')
 
     job.append(listItem)
   })
@@ -49,5 +75,17 @@ function createList(container, items, className) {
     list.append(listItem)
   })
   container.append(list)
+}
+
+function createElement(tag, attributes, text) {
+  let newElement = document.createElement(tag);
+  if (text)
+    newElement.innerHTML = text
+  if (attributes) {
+    for (let key in attributes) {
+      newElement.setAttribute(key, attributes[key])
+    }
+  }
+  return newElement
 }
 

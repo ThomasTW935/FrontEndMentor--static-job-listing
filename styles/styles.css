@@ -1,6 +1,13 @@
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  font-size: 15px;
+  color: #5ba4a4;
+  background: #effafa;
+  position: relative;
 }
 
 *,
@@ -8,6 +15,12 @@ html {
 *::after {
   -webkit-box-sizing: inherit;
           box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
 }
 
 .attribution {
@@ -15,5 +28,149 @@ html {
   bottom: 1em;
   left: 0;
   right: 0;
+}
+
+.job__header div img {
+  height: auto;
+  width: 100%;
+}
+
+.job__listItem {
+  font-size: 0.9rem;
+  height: calc(100vh / 2.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 1.5em;
+  position: relative;
+  margin: 5em 1.5em;
+  padding: 2.5em 1.5em 1.5em;
+  border-radius: 5px;
+  background: white;
+  -webkit-box-shadow: 2px 6px 6px 6px rgba(0, 0, 0, 0.1);
+          box-shadow: 2px 6px 6px 6px rgba(0, 0, 0, 0.1);
+}
+
+.job--featured {
+  border-left: 6px solid #5ba4a4;
+}
+
+.job__logo {
+  position: absolute;
+  top: -1.5em;
+  width: 3em;
+}
+
+.job__logo img {
+  height: auto;
+  width: 100%;
+}
+
+.job__special {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1em;
+}
+
+.job__company {
+  font-weight: 700;
+}
+
+.job__new, .job__featured {
+  text-transform: uppercase;
+  padding: 0.5em 0.75em;
+  border-radius: 1em;
+  color: white;
+  font-weight: 700;
+}
+
+.job__new {
+  background: #5ba4a4;
+}
+
+.job__featured {
+  background: #2c3a3a;
+}
+
+.job__position {
+  font-size: 1rem;
+  color: black;
+}
+
+.job__details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1.5em;
+  color: black;
+  opacity: 0.4;
+}
+
+.job__details li {
+  list-style-type: disc;
+}
+
+.job__details li:first-child {
+  list-style-type: none;
+}
+
+.job__skills {
+  justify-self: end;
+  width: 100%;
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1em;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 1.5em 0;
+  width: 90%;
+}
+
+.job__skills li {
+  background: #effafa;
+  padding: 0.5em 0.75em;
 }
 /*# sourceMappingURL=styles.css.map */

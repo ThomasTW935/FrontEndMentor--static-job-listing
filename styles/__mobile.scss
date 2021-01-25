@@ -1,0 +1,90 @@
+$lightGrayCyan: hsl(180, 52%, 96%);
+$lightGrayishCyan: hsl(180, 31%, 95%);
+$darkGrayishCyan: hsl(180, 8%, 52%);
+$veryDarkGrayishCyan: hsl(180, 14%, 20%);
+$desaturatedDarkCyan: hsl(180, 29%, 50%);
+.job {
+  &__header {
+    div {
+      img {
+        height: auto;
+        width: 100%;
+      }
+    }
+  }
+  &__listItem {
+    font-size: 0.9rem;
+    height: calc(100vh / 2.5);
+    @include displayFlex(column, flex-start, flex-start);
+    gap: 1.5em;
+    position: relative;
+    margin: 5em 1.5em;
+    padding: 2.5em 1.5em 1.5em;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 2px 6px 6px 6px rgba(0, 0, 0, 0.1);
+  }
+  &--featured {
+    border-left: 6px solid $desaturatedDarkCyan;
+  }
+  &__logo {
+    position: absolute;
+    top: -1.5em;
+    width: 3em;
+    img {
+      height: auto;
+      width: 100%;
+    }
+  }
+  &__special {
+    @include displayFlex(row, flex-start, center);
+    gap: 1em;
+  }
+  &__company {
+    font-weight: 700;
+  }
+  &__new,
+  &__featured {
+    text-transform: uppercase;
+    padding: 0.5em 0.75em;
+    border-radius: 1em;
+    color: white;
+    font-weight: 700;
+  }
+  &__new {
+    background: $desaturatedDarkCyan;
+  }
+  &__featured {
+    background: $veryDarkGrayishCyan;
+  }
+  &__position {
+    font-size: 1rem;
+    color: black;
+  }
+  &__details {
+    @include displayFlex(row, flex-start, center);
+    gap: 1.5em;
+    color: black;
+    opacity: 0.4;
+    li {
+      &:first-child {
+        list-style-type: none;
+      }
+      list-style-type: disc;
+    }
+  }
+  &__skills {
+    justify-self: end;
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.5);
+    @include displayFlex(row, flex-start, center);
+    gap: 1em;
+    flex-wrap: wrap;
+    padding: 1.5em 0;
+    width: 90%;
+    li {
+      background: $lightGrayCyan;
+      padding: 0.5em 0.75em;
+    }
+  }
+}
