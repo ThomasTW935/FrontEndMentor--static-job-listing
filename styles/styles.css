@@ -30,9 +30,54 @@ li {
   right: 0;
 }
 
-.job__header div img {
+.job__header {
+  position: relative;
+}
+
+.job__image {
+  background: #5ba4a4;
+}
+
+.job__image img {
   height: auto;
-  width: 100%;
+  max-width: 100%;
+}
+
+.job__filter {
+  position: relative;
+  top: -2.5em;
+  margin: 0 1.5em;
+  padding: 0.5em 1.2em;
+  -webkit-box-shadow: 2px 6px 6px 6px rgba(0, 0, 0, 0.1);
+          box-shadow: 2px 6px 6px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 1em;
+}
+
+.job #jobFilter {
+  border: 0;
+  padding: 1em 0;
+}
+
+.job__clearFilter {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 0.9em;
+  font-weight: bold;
+  opacity: 0.4;
+  outline: none;
+}
+
+.job__clearFilter:active, .job__clearFilter:hover {
+  color: #5ba4a4;
 }
 
 .job__listItem {
@@ -54,8 +99,8 @@ li {
   gap: 1.5em;
   position: relative;
   margin: 5em 1.5em;
-  padding: 2.5em 1.5em 1.5em;
-  border-radius: 5px;
+  padding: 2.5em 1.2em 1.5em;
+  border-radius: 6px;
   background: white;
   -webkit-box-shadow: 2px 6px 6px 6px rgba(0, 0, 0, 0.1);
           box-shadow: 2px 6px 6px 6px rgba(0, 0, 0, 0.1);
@@ -145,9 +190,10 @@ li {
   list-style-type: none;
 }
 
-.job__skills {
+.job__categories {
   justify-self: end;
   width: 100%;
+  font-weight: bold;
   border-top: 1px solid rgba(0, 0, 0, 0.5);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -169,8 +215,9 @@ li {
   width: 90%;
 }
 
-.job__skills li {
+.job__categories li {
   background: #effafa;
   padding: 0.5em 0.75em;
+  cursor: pointer;
 }
 /*# sourceMappingURL=styles.css.map */

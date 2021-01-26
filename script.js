@@ -1,10 +1,55 @@
 init()
 
+let categoriesSelected = []
+let test = ['Frontend', 'HTML']
 function init() {
   loadJSON((res) => {
     let data = JSON.parse(res)
-    console.log(data)
-    createHTMLElements(data)
+    let newData = data.filter(({ role, level, tools, languages }) => {
+      let filterValues = [role, level, ...tools, ...languages]
+      console.log(filterValues)
+      let match = 1
+      for (let i = 0; i < test.length; i++) {
+        match = (filterValues.includes(test[i])) ? match * 1 : match * 0
+      }
+      console.log(match)
+      return match === 1
+    })
+    // let newData = data.filter(({ role, level }) => {
+    //   let match = (role === 'Frontend') ? 1 : 0
+
+    //   return match >= 1
+    // })
+    createHTMLElements(newData)
+    addEventsToCategories()
+
+
+
+
+
+    let clearFilter = document.querySelector('.job__clearFilter')
+    clearFilter.addEventListener('click', resetFilter)
+    function addEventsToCategories() {
+      let categories = document.querySelectorAll('.job__categories li')
+      categories.forEach(category => {
+        category.addEventListener('click', () => {
+          filterCategories(category.innerHTML)
+        })
+      })
+    }
+    function filterCategories(category) {
+      if (!categoriesSelected.includes(category)) {
+        categoriesSelected = [...categoriesSelected, category]
+        let newCategory = createElement('li', {}, category)
+        jobFilter.append(newCategory)
+      }
+    }
+    function resetFilter() {
+      for (let i = jobFilter.childNodes.length - 1; i >= 0; i--) {
+        jobFilter.childNodes[i].remove()
+      }
+      categoriesSelected = []
+    }
   })
 }
 function loadJSON(callback) {
@@ -61,9 +106,10 @@ function createHTMLElements(data) {
     createList(listItem, [obj.postedAt, obj.contract, obj.location], 'job__details')
 
     // Job Skills
-    createList(listItem, [obj.role, obj.level, ...obj.tools, ...obj.languages], 'job__skills')
+    createList(listItem, [obj.role, obj.level, ...obj.tools, ...obj.languages], 'job__categories')
 
     job.append(listItem)
+
   })
 }
 function createList(container, items, className) {
@@ -88,4 +134,5 @@ function createElement(tag, attributes, text) {
   }
   return newElement
 }
+
 

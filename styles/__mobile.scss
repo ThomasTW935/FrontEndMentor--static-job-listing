@@ -5,11 +5,43 @@ $veryDarkGrayishCyan: hsl(180, 14%, 20%);
 $desaturatedDarkCyan: hsl(180, 29%, 50%);
 .job {
   &__header {
-    div {
-      img {
-        height: auto;
-        width: 100%;
-      }
+    position: relative;
+  }
+  &__image {
+    background: $desaturatedDarkCyan;
+    img {
+      height: auto;
+      max-width: 100%;
+    }
+  }
+  &__filter {
+    position: relative;
+    top: -2.5em;
+    margin: 0 1.5em;
+    padding: 0.5em 1.2em;
+    box-shadow: 2px 6px 6px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+  }
+  #jobFilter {
+    border: 0;
+    padding: 1em 0;
+  }
+
+  &__clearFilter {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 0.9em;
+    font-weight: bold;
+    opacity: 0.4;
+    outline: none;
+    &:active,
+    &:hover {
+      color: $desaturatedDarkCyan;
     }
   }
   &__listItem {
@@ -19,8 +51,8 @@ $desaturatedDarkCyan: hsl(180, 29%, 50%);
     gap: 1.5em;
     position: relative;
     margin: 5em 1.5em;
-    padding: 2.5em 1.5em 1.5em;
-    border-radius: 5px;
+    padding: 2.5em 1.2em 1.5em;
+    border-radius: 6px;
     background: white;
     box-shadow: 2px 6px 6px 6px rgba(0, 0, 0, 0.1);
   }
@@ -73,9 +105,10 @@ $desaturatedDarkCyan: hsl(180, 29%, 50%);
       list-style-type: disc;
     }
   }
-  &__skills {
+  &__categories {
     justify-self: end;
     width: 100%;
+    font-weight: bold;
     border-top: 1px solid rgba(0, 0, 0, 0.5);
     @include displayFlex(row, flex-start, center);
     gap: 1em;
@@ -85,6 +118,7 @@ $desaturatedDarkCyan: hsl(180, 29%, 50%);
     li {
       background: $lightGrayCyan;
       padding: 0.5em 0.75em;
+      cursor: pointer;
     }
   }
 }
