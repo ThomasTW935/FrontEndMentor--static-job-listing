@@ -13,7 +13,9 @@ function init() {
     function variables() {
       let clearFilter = document.querySelector('.job__clearFilter')
 
-      clearFilter.addEventListener('click', resetFilter)
+      clearFilter.addEventListener('click', () => {
+        resetFilter()
+      })
     }
     function filterData(data) {
       let newData = data.filter(({ role, level, tools, languages }) => {
@@ -30,16 +32,30 @@ function init() {
       if (!categoriesSelected.includes(category)) {
         categoriesSelected = [...categoriesSelected, category]
         let newCategory = createElement('li', {}, category)
+        let buttonRemove = createElement('span', { class: 'job__removeCategory' }, 'X')
+        buttonRemove.addEventListener('click', () => {
+          resetFilter(category)
+        })
+        newCategory.append(buttonRemove)
         jobFilter.append(newCategory)
+
+        let newData = (category != null) ? filterData(data) : data
+        removeHTMLElements()
+        createHTMLElements(newData)
       }
     }
-    function resetFilter() {
+    function resetFilter(category = null) {
+      console.log(category)
       for (let i = jobFilter.childNodes.length - 1; i >= 0; i--) {
+        if (category != null && category !== categoriesSelected[i]) {
+          continue
+        }
         jobFilter.childNodes[i].remove()
       }
-      categoriesSelected = []
+      categoriesSelected = (category != null) ? categoriesSelected.filter((sel) => sel !== category) : []
+      let newData = (category != null) ? filterData(data) : data
       removeHTMLElements()
-      createHTMLElements(data)
+      createHTMLElements(newData)
     }
     function removeHTMLElements() {
       let jobCon = document.querySelector('.job')
@@ -90,11 +106,11 @@ function init() {
         createList(listItem, [obj.postedAt, obj.contract, obj.location], 'job__details')
 
         // Job Skills
-        createList(listItem, [obj.role, obj.level, ...obj.tools, ...obj.languages], 'job__categories')
+        createList(listItem, [obj.role, obj.level, ...obj.tools, ...obj.languages], 'job__skills')
 
         job.append(listItem)
 
-        let categories = document.querySelectorAll('.job__categories li')
+        let categories = document.querySelectorAll('.job__skills li')
         categories.forEach(category => {
           category.addEventListener('click', () => {
             filterCategories(category.innerHTML)

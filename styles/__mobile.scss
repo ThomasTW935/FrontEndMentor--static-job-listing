@@ -29,6 +29,25 @@ $desaturatedDarkCyan: hsl(180, 29%, 50%);
   #jobFilter {
     border: 0;
     padding: 1em 0;
+    li {
+      position: relative;
+      padding-right: calc(0.75em + 1.5em);
+      overflow: hidden;
+    }
+  }
+  &__removeCategory {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1.5em;
+    height: 100%;
+    font-size: 1rem;
+    font-weight: bolder;
+    color: white;
+    background: $desaturatedDarkCyan;
+    display: grid;
+    place-content: center;
+    cursor: pointer;
   }
 
   &__clearFilter {
@@ -105,7 +124,8 @@ $desaturatedDarkCyan: hsl(180, 29%, 50%);
       list-style-type: disc;
     }
   }
-  &__categories {
+  &__categories,
+  &__skills {
     justify-self: end;
     width: 100%;
     font-weight: bold;
@@ -119,6 +139,7 @@ $desaturatedDarkCyan: hsl(180, 29%, 50%);
       background: $lightGrayCyan;
       padding: 0.5em 0.75em;
       cursor: pointer;
+      border-radius: 6px;
     }
   }
 }

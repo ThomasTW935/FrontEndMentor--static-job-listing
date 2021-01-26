@@ -66,6 +66,28 @@ li {
   padding: 1em 0;
 }
 
+.job #jobFilter li {
+  position: relative;
+  padding-right: calc(0.75em + 1.5em);
+  overflow: hidden;
+}
+
+.job__removeCategory {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1.5em;
+  height: 100%;
+  font-size: 1rem;
+  font-weight: bolder;
+  color: white;
+  background: #5ba4a4;
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+
 .job__clearFilter {
   cursor: pointer;
   border: none;
@@ -190,7 +212,7 @@ li {
   list-style-type: none;
 }
 
-.job__categories {
+.job__categories, .job__skills {
   justify-self: end;
   width: 100%;
   font-weight: bold;
@@ -215,9 +237,10 @@ li {
   width: 90%;
 }
 
-.job__categories li {
+.job__categories li, .job__skills li {
   background: #effafa;
   padding: 0.5em 0.75em;
   cursor: pointer;
+  border-radius: 6px;
 }
 /*# sourceMappingURL=styles.css.map */
