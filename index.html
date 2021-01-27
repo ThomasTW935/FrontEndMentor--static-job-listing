@@ -8,7 +8,7 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel='stylesheet' href='./styles/styles.css'>
-  <script src='./script.js'></script>
+  <script defer src='./script.js'></script>
   <title>Frontend Mentor | Job Listings</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
@@ -25,20 +25,21 @@
 </head>
 
 <body>
-  <ul class="job">
-    <li class="job__header">
-      <div class='job__image'><img src='./images/bg-header-mobile.svg' /></div>
+  <div class="job">
+    <section class="job__header">
+      <!-- <div class='job__image'><img src='./images/bg-header-mobile.svg' /></div> -->
       <div class="job__filter">
         <ul class="job__categories" id='jobFilter'></ul>
         <button type='button' class='job__clearFilter'>Clear</button>
       </div>
-    </li>
-  </ul>
-
+    </section>
+    <ul class="job__list"></ul>
+  </div>
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
     Coded by <a href="#">Daryl Thomas</a>.
   </div>
+
 </body>
 
 </html>

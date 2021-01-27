@@ -1,0 +1,69 @@
+@media only screen and (min-width: 1440px) {
+  .job {
+    &__header {
+      background-image: url("../images/bg-header-desktop.svg");
+    }
+    &__filter {
+      width: 80%;
+      margin: 0 auto;
+    }
+    &__removeCategory:hover {
+      background: $veryDarkGrayishCyan;
+      color: white;
+    }
+    &__clearFilter {
+      color: $desaturatedDarkCyan;
+      opacity: 1;
+      font-weight: normal;
+      text-decoration: underline;
+    }
+    &__list {
+      width: 80%;
+      margin: 3em auto;
+      @include displayFlex(column, flex-start, center);
+      padding: 3em 0;
+      font-size: 0.8em;
+    }
+    &__listItem {
+      display: grid;
+      grid-template: repeat(3, 1fr) / 10% repeat(2, 1fr);
+      grid-template-areas:
+        "logo special skills"
+        "logo position skills"
+        "logo details skills";
+      gap: 1em;
+      height: 130px;
+      max-width: 100%;
+      width: 100%;
+    }
+    &__logo {
+      grid-area: logo;
+      position: relative;
+      width: 100%;
+      margin: auto 0;
+    }
+    &__special {
+      grid-area: special;
+      align-self: flex-end;
+    }
+    &__position {
+      grid-area: position;
+      font-size: 1.3em;
+      cursor: pointer;
+      &:hover {
+        color: $desaturatedDarkCyan;
+      }
+    }
+    &__details {
+      grid-area: details;
+    }
+    &__skills {
+      border: none;
+      grid-area: skills;
+      li:hover {
+        background: $desaturatedDarkCyan;
+        color: white;
+      }
+    }
+  }
+}

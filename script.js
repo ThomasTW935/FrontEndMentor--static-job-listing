@@ -1,22 +1,19 @@
 init()
 
 let categoriesSelected = []
-let test = ['Frontend', 'HTML']
+let jobList = document.querySelector('.job__list')
 function init() {
   loadJSON((res) => {
     let data = JSON.parse(res)
-
     createHTMLElements(data)
-    variables()
 
 
-    function variables() {
-      let clearFilter = document.querySelector('.job__clearFilter')
+    let clearFilter = document.querySelector('.job__clearFilter')
 
-      clearFilter.addEventListener('click', () => {
-        resetFilter()
-      })
-    }
+    clearFilter.addEventListener('click', () => {
+      resetFilter()
+    })
+
     function filterData(data) {
       let newData = data.filter(({ role, level, tools, languages }) => {
         let filterValues = [role, level, ...tools, ...languages]
@@ -45,7 +42,6 @@ function init() {
       }
     }
     function resetFilter(category = null) {
-      console.log(category)
       for (let i = jobFilter.childNodes.length - 1; i >= 0; i--) {
         if (category != null && category !== categoriesSelected[i]) {
           continue
@@ -58,15 +54,13 @@ function init() {
       createHTMLElements(newData)
     }
     function removeHTMLElements() {
-      let jobCon = document.querySelector('.job')
-      for (let i = jobCon.childNodes.length - 1; i > 1; i--) {
-        jobCon.childNodes[i].remove()
+
+      for (let i = jobList.childNodes.length - 1; i >= 0; i--) {
+        jobList.childNodes[i].remove()
       }
     }
     function createHTMLElements(data) {
-      let job = document.querySelector('.job')
       data.forEach((obj) => {
-        // console.log(obj)
         let listItem = document.createElement('li')
         listItem.classList.add('job__listItem')
         if (obj.featured) listItem.classList.add('job--featured')
@@ -108,7 +102,7 @@ function init() {
         // Job Skills
         createList(listItem, [obj.role, obj.level, ...obj.tools, ...obj.languages], 'job__skills')
 
-        job.append(listItem)
+        jobList.append(listItem)
 
         let categories = document.querySelectorAll('.job__skills li')
         categories.forEach(category => {

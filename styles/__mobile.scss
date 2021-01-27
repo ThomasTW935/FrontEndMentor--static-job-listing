@@ -5,19 +5,17 @@ $veryDarkGrayishCyan: hsl(180, 14%, 20%);
 $desaturatedDarkCyan: hsl(180, 29%, 50%);
 .job {
   &__header {
+    background-image: url("../images/bg-header-mobile.svg");
+    background-color: $desaturatedDarkCyan;
     position: relative;
-  }
-  &__image {
-    background: $desaturatedDarkCyan;
-    img {
-      height: auto;
-      max-width: 100%;
-    }
+    height: 20vh;
+    padding: 1.5em;
   }
   &__filter {
-    position: relative;
-    top: -2.5em;
-    margin: 0 1.5em;
+    position: absolute;
+    left: 1.5em;
+    right: 1.5em;
+    bottom: -1.5em;
     padding: 0.5em 1.2em;
     box-shadow: 2px 6px 6px 6px rgba(0, 0, 0, 0.1);
     border-radius: 6px;
@@ -63,17 +61,26 @@ $desaturatedDarkCyan: hsl(180, 29%, 50%);
       color: $desaturatedDarkCyan;
     }
   }
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
+    padding: 3em 1.5em;
+    margin: 2em 0;
+    gap: 3em;
+  }
   &__listItem {
     font-size: 0.9rem;
     height: calc(100vh / 2.5);
     @include displayFlex(column, flex-start, flex-start);
     gap: 1.5em;
     position: relative;
-    margin: 5em 1.5em;
     padding: 2.5em 1.2em 1.5em;
     border-radius: 6px;
     background: white;
     box-shadow: 2px 6px 6px 6px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    min-width: 325px;
+    width: 50%;
   }
   &--featured {
     border-left: 6px solid $desaturatedDarkCyan;
